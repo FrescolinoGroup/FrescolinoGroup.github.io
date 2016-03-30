@@ -25,12 +25,15 @@ def main():
     
     mods = []
     for mod_name in listdir_only_dir(path):
+        print("Processing module {}".format(mod_name))
         M = dict()
         # get all versions
         M["name"] = mod_name
         M["path"] = os.path.join(path, mod_name)
         M["versions"] = list(reversed(sorted(listdir_only_dir(M["path"]))))
         M["versions_path"] = [os.path.join(mod_name, v) for v in M["versions"]]
+        
+        print("versions found:  {}".format(", ".join(M["versions"])))
         
         # get default version
         dev_vers = M["versions"][0] # choose latest as default
@@ -39,15 +42,22 @@ def main():
         if os.path.isfile(dvf): # unless specified explicitly
             with open(dvf, "r") as f:
                 dev_vers = f.readline().strip()
+        print("default version: {}".format(dev_vers))
             
         M["dev_version"] = dev_vers
         M["dev_version_path"] = os.path.join(mod_name, dev_vers)
         
         # get description
         descr = os.path.join(path, "..", "..", "modules", mod_name, "doc", "description.txt")
+        
+        if not os.path.isfile(descr):
+            raise RuntimeError("Module {} has no doc/describtion.txt file".format(mod_name))
+        
         with open(descr, "r") as f:
             M["description"] = f.readline().strip()
         mods.append(M)
+        
+        print()
     
     #~ print(mods)
     #~ return 
