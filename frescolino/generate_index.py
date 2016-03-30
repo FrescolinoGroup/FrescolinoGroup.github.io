@@ -7,6 +7,21 @@
 
 import os
 import glob
+from xml.etree import ElementTree as xml
+
+
+def prettify(node, indent = "    ", level = 0):
+    node.tail = "\n" + indent * level
+    if len(node) != 0:
+        node.text = "\n" + indent * (level + 1)
+        for c in node:
+            prettify(c, indent, level + 1)
+            if c == node[-1]:
+                c.tail = "\n" + indent * level
+    else:
+        if node.text:
+            node.text = node.text.strip()
+        node.tail = "\n" + indent * level
 
 def listdir_only_dir(path):
     path_name = os.listdir(path)
@@ -61,41 +76,71 @@ def main():
     
     #~ print(mods)
     #~ return 
-    with open("index.html", "w") as o:
-        
-        o.write("<div>\n")
-        
-        for M in mods:
-        
-            o.write("<div>\n")
-            o.write("<div>{} ({})</div>\n".format(M["name"], M["description"]))
-            
-            o.write("<div>\n")
-            
-            o.write('<a href="{}/index.html">Latest Version {}</a>\n'.format(M["dev_version_path"], M["dev_version"]))
-            
-            o.write('<a>All Versions </a>\n')
-            o.write('<select>\n')
-            
-            for v, vp in zip(M["versions"], M["versions_path"]):
-                status = ""
-                sel = ""
-                if v == M["dev_version"]:
-                    status = "(default)"
-                    sel = 'selected="selected"'
-                elif v > M["dev_version"]:
-                    status = "(dev)"
-                
-                o.write('<option {} onclick="window.location.href=\'{}/index.html\'">{} {}</option>\n'.format(sel, vp, v, status))
-            
-            o.write('</select>\n')
-            
-            o.write("</div>\n")
-            o.write("</div>\n")
-            
-        o.write("</div>\n")
-        
     
+    #------------------- write html -------------------
+    
+    body = xml.Element("body")
+    
+    for M in mods:
+        mod = xml.Element("div", **{"class": "module"})
+        
+        name = xml.Element("a", name="title")
+        name.text = M["name"]
+        descr = xml.Element("a", name="descr")
+        descr.text = M["description"]
+        
+        title = xml.Element("div")
+        title.append(name)
+        title.append(descr)
+        
+        mod.append(title)
+        
+        versions = xml.Element("div", name="versions")
+        
+        lv = xml.Element("a", href=M["dev_version_path"]+"/index.html", name="latest")
+        lv.text = "Latest Version {}".format(M["dev_version"])
+        
+        avers = xml.Element("a")
+        avers.text = "All Versions"
+        
+        sel = xml.Element("select")
+        for v, vp in zip(M["versions"], M["versions_path"]):
+            attr = dict(onclick="window.location.href=\'{}/index.html\'".format(vp))
+            status = ""
+            if v == M["dev_version"]:
+                status = "(default)"
+                attr["selected"]="selected"
+            elif v > M["dev_version"]:
+                status = "(dev)"
+            opt = xml.Element("option", **attr)
+            opt.text = "{} {}".format(v, status)
+            sel.append(opt)
+        
+        av = xml.Element("div")
+        av.append(avers)
+        av.append(sel)
+        
+        
+        versions.append(lv)
+        versions.append(av)
+        mod.append(versions)
+        
+        body.append(mod)
+    
+    
+    
+    head = xml.Element("head")
+    link = xml.Element("link", href="theme.css", rel="stylesheet", type="text/css")
+    head.append(link)
+    
+    root = xml.Element("html")
+    root.append(head)
+    root.append(body)
+    
+    prettify(root)
+    
+    tree = xml.ElementTree(root)
+    tree.write("index.html", method = "html")
     
 if __name__ == "__main__":
     main()
