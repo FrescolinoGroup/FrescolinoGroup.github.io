@@ -13,7 +13,7 @@
 
   
   
-    <link rel="shortcut icon" href="_static/frescolino.ico"/>
+    <link rel="shortcut icon" href="_static/frescolino_favicon.ico"/>
   
 
   
@@ -59,7 +59,7 @@
 
           
             
-            <img src="_static/frescolino.png" class="logo" />
+            <img src="_static/frescolino_logo.svg" class="logo" />
           
           </a>
 
@@ -139,20 +139,19 @@
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fsc</span> <span class="k">import</span> <span class="n">termcolor</span>
 </pre></div>
 </div>
-<p>If you want to print &#8220;Hello World&#8221; colored read and blue, use the color functions.</p>
+<p>If you want to print &#8220;Hello World&#8221; colored red and blue, use the color functions.</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">termcolor</span><span class="o">.</span><span class="n">red</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">),</span> <span class="n">termcolor</span><span class="o">.</span><span class="n">blue</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The color functions take any argument and stringify it (via .format).</p>
+<p>The color functions take any argument which is convertible to string.</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">termcolor</span><span class="o">.</span><span class="n">green</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">termcolor</span><span class="o">.</span><span class="n">cyan</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>for precise control one can use the color dictionary.</p>
+<p>For precise control one can use the color dictionary.</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{red}{}</span><span class="s2"> </span><span class="si">{blue}{}</span><span class="s2"> </span><span class="si">{green}{:.2}{none}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mf">3.1453</span><span class="p">,</span> <span class="o">**</span><span class="n">termcolor</span><span class="o">.</span><span class="n">color</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The none entry resets the color again, otherwise the last active color will be used
-in further print statements.</p>
+<p>The none entry resets the color, otherwise the last active color will be used in further print statements.</p>
 </div>
 
 
