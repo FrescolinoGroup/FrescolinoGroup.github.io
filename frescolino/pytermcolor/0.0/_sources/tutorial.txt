@@ -1,0 +1,29 @@
+Tutorial
+========
+
+To import the package you can use:
+
+.. code:: python
+
+    from fsc import termcolor
+
+If you want to print "Hello World" colored read and blue, use the color functions.
+
+.. code:: python
+
+    print(termcolor.red("Hello"), termcolor.blue("World"))
+    
+The color functions take any argument and stringify it (via .format).
+
+.. code:: python
+
+    print(termcolor.green(1), termcolor.cyan([1,2,3]))
+    
+for precise control one can use the color dictionary.
+
+.. code:: python
+
+    print("{red}{} {blue}{} {green}{:.2}{none}".format("Hello", "World", 3.1453, **termcolor.color))
+
+The none entry resets the color again, otherwise the last active color will be used
+in further print statements.
