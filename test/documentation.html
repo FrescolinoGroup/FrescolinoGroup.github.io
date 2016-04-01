@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation &mdash; pylocker 0.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/frescolino.ico"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within pylocker 0.0.0 documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pylocker 0.0.0 documentation" href="index.html"/>
+        <link rel="prev" title="Tutorial" href="tutorial.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pylocker
+          
+
+          
+            
+            <img src="_static/frescolino.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">pylocker</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-fsc.locker">
+<span id="documentation"></span><h1>Documentation<a class="headerlink" href="#module-fsc.locker" title="Permalink to this headline">¶</a></h1>
+<p>This module contains metaclasses which limit the changing member variables of a class once it has been instantiated &#8211; that is, after the <code class="docutils literal"><span class="pre">__init__</span></code> function.</p>
+<p>The level of access restriction is governed by the <code class="docutils literal"><span class="pre">attr_mod_ctrl</span></code> attribute of the class. The possible values for this variable are <code class="docutils literal"><span class="pre">'const'</span></code>, <code class="docutils literal"><span class="pre">'all'</span></code>, <code class="docutils literal"><span class="pre">'new'</span></code> or <code class="docutils literal"><span class="pre">'none'</span></code>.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">attr_mod_ctrl</span> <span class="pre">==</span> <span class="pre">'const'</span></code> prohibits any kind of change to the instance attributes, and also prohibits changing the <code class="docutils literal"><span class="pre">attr_mod_ctrl</span></code> variable.</li>
+<li><code class="docutils literal"><span class="pre">attr_mod_ctrl</span> <span class="pre">==</span> <span class="pre">'all'</span></code> prohibits any changes to the instance attributes, but the <code class="docutils literal"><span class="pre">attr_mod_ctrl</span></code> itself can be changed</li>
+<li><code class="docutils literal"><span class="pre">attr_mod_ctrl</span> <span class="pre">==</span> <span class="pre">'new'</span></code> prohibits the creation of new attributes and deletion of existing ones.</li>
+<li><code class="docutils literal"><span class="pre">attr_mod_ctrl</span> <span class="pre">==</span> <span class="pre">'none'</span></code> does nothing.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The functionality provided in this module should <strong>not</strong> be used for <strong>security</strong> purposes. It is intended only for avoiding accidental changes in attributes, and is in no way guarded against malicious attacks.</p>
+</div>
+<dl class="class">
+<dt id="fsc.locker.ConstLocker">
+<em class="property">class </em><code class="descclassname">fsc.locker.</code><code class="descname">ConstLocker</code><span class="sig-paren">(</span><em>name</em>, <em>bases</em>, <em>attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#fsc.locker.ConstLocker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Locker metaclass setting <code class="docutils literal"><span class="pre">attr_mod_ctrl</span></code> to <code class="docutils literal"><span class="pre">'all'</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="fsc.locker.Locker">
+<em class="property">class </em><code class="descclassname">fsc.locker.</code><code class="descname">Locker</code><span class="sig-paren">(</span><em>name</em>, <em>bases</em>, <em>attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#fsc.locker.Locker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Locker metaclass setting <code class="docutils literal"><span class="pre">attr_mod_ctrl</span></code> to <code class="docutils literal"><span class="pre">'new'</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="fsc.locker.OpenLocker">
+<em class="property">class </em><code class="descclassname">fsc.locker.</code><code class="descname">OpenLocker</code><span class="sig-paren">(</span><em>name</em>, <em>bases</em>, <em>attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#fsc.locker.OpenLocker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Locker metaclass setting <code class="docutils literal"><span class="pre">attr_mod_ctrl</span></code> to <code class="docutils literal"><span class="pre">'none'</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="fsc.locker.SuperConstLocker">
+<em class="property">class </em><code class="descclassname">fsc.locker.</code><code class="descname">SuperConstLocker</code><span class="sig-paren">(</span><em>name</em>, <em>bases</em>, <em>attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#fsc.locker.SuperConstLocker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Locker metaclass setting <code class="docutils literal"><span class="pre">attr_mod_ctrl</span></code> to <code class="docutils literal"><span class="pre">'const'</span></code>.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="tutorial.html" class="btn btn-neutral" title="Tutorial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, C. Frescolino.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
