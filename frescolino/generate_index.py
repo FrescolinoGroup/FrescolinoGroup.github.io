@@ -39,7 +39,10 @@ def main():
     mod_names = sorted(listdir_only_dir(path))
     
     mods = []
+    reserved_names = ['static']
     for mod_name in listdir_only_dir(path):
+        if mod_name in reserved_names:
+            continue
         print("Processing module {}".format(mod_name))
         M = dict()
         # get all versions
@@ -80,6 +83,22 @@ def main():
     #------------------- write html -------------------
     
     body = xml.Element("body")
+
+    header = xml.Element("header")
+    container = xml.Element("div", **{"class": "head_container"})
+    figure = xml.Element("figure", **{"class": "logo"})
+    figure.append(xml.Element("img", **{'src': 'static/frescolino_logo.png'}))
+    container.append(figure)
+    title = xml.Element("h1")
+    title.text = "The Frescolino project"
+    container.append(title)
+    subtitle = xml.Element("h2")
+    subtitle.text = "Choose a Module below"
+    container.append(subtitle)
+    header.append(container)
+    body.append(header)
+
+    mod_container = xml.Element("div", **{"class": "mod_container"})
     
     for M in mods:
         mod = xml.Element("div", **{"class": "module"})
@@ -97,7 +116,8 @@ def main():
         
         versions = xml.Element("div", name="versions")
         
-        lv = xml.Element("a", href=M["dev_version_path"]+"/index.html", name="latest")
+        default_doc = M["dev_version_path"]+"/index.html"
+        lv = xml.Element("a", href=default_doc, name="latest")
         lv.text = "Latest Version {}".format(M["dev_version"])
         
         avers = xml.Element("a")
@@ -124,9 +144,9 @@ def main():
         versions.append(lv)
         versions.append(av)
         mod.append(versions)
-        
-        body.append(mod)
-    
+        mod_container.append(mod)
+
+    body.append(mod_container)
     
     
     head = xml.Element("head")
