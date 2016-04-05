@@ -135,8 +135,8 @@
             
   <div class="section" id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>In the following, we will create a simple class using the different Locker metaclasses to see how they affect which operations are permitted.</p>
-<p>First, the <code class="xref py py-class docutils literal"><span class="pre">OpenLocker</span></code> metaclass does not prohibit any operations on the instance attributes. That is, changing attributes, assigning new attributes or deleting attributes is permitted.</p>
+<p>In the following, we will create a simple class using the different Locker metaclasses to see how they affect the different operations.</p>
+<p>First, the <code class="xref py py-class docutils literal"><span class="pre">OpenLocker</span></code> metaclass does not prohibit any operations on the instance attributes. Changing attributes, assigning new attributes and/or deleting attributes is permitted.</p>
 <div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fsc.locker</span> <span class="k">import</span> <span class="n">OpenLocker</span>
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">OpenLocker</span><span class="p">):</span>
