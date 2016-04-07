@@ -1,9 +1,0 @@
-Documentation
-=============
-
-.. automodule:: fsc.termcolor.color
-    :members:
-    
-.. automodule:: fsc.termcolor
-    :members:
-    :imported-members:
