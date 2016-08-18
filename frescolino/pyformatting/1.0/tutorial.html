@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; pyformatting 1.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/frescolino_favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within pyformatting 1.0.0 documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pyformatting 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Documentation" href="documentation.html"/>
+        <link rel="prev" title="pyformatting" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyformatting
+          
+
+          
+            
+            <img src="_static/frescolino_logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#shortening-strings">Shortening strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drawing-a-box-around-a-string">Drawing a box around a string</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">pyformatting</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="shortening-strings">
+<h2>Shortening strings<a class="headerlink" href="#shortening-strings" title="Permalink to this headline">¶</a></h2>
+<p>Strings can be shortened to a given maximum length using the <a class="reference internal" href="documentation.html#fsc.formatting.shorten" title="fsc.formatting.shorten"><code class="xref py py-func docutils literal"><span class="pre">shorten()</span></code></a> function.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fsc.formatting</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">long_string</span> <span class="o">=</span> <span class="s1">&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span>
+<span class="go">&#39;Lorem ipsum dolor s&lt;...406...&gt;anim id est laborum.&#39;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">length</span></code> keyword can be used to change how long the final string will be.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="n">long_string</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="go">&#39;Lore&lt;...436...&gt;orum.&#39;</span>
+</pre></div>
+</div>
+<p>Finally, the <code class="docutils literal"><span class="pre">show_number</span></code> keyword can be used to show or hide the number indicating by how much the string has been cut.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="n">long_string</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">show_number</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&#39;Lorem i&lt;...&gt;laborum.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="drawing-a-box-around-a-string">
+<h2>Drawing a box around a string<a class="headerlink" href="#drawing-a-box-around-a-string" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="documentation.html#fsc.formatting.to_box" title="fsc.formatting.to_box"><code class="xref py py-func docutils literal"><span class="pre">to_box()</span></code></a> function can be used to draw a box around a paragraph.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fsc.formatting</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">to_box</span><span class="p">(</span><span class="s1">&#39;line 1</span><span class="se">\n</span><span class="s1">line 2&#39;</span><span class="p">))</span>
+<span class="go">+----------------------------------------------------------------------+</span>
+<span class="go">|                                line 1                                |</span>
+<span class="go">|                                line 2                                |</span>
+<span class="go">+----------------------------------------------------------------------+</span>
+</pre></div>
+</div>
+<p>The width of the box must be at least as wide as the longest line in the string, otherwise the box will appear broken.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">to_box</span><span class="p">(</span><span class="s1">&#39;line 1</span><span class="se">\n</span><span class="s1">line 2 is way too long, it is longer than the width of the box! this will look quite ugly!&#39;</span><span class="p">))</span>
+<span class="go">+----------------------------------------------------------------------+</span>
+<span class="go">|line 1                                                                |</span>
+<span class="go">|line 2 is way too long, it is longer than the width of the box! this will look quite ugly!|</span>
+<span class="go">+----------------------------------------------------------------------+</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">padding</span></code> keyword can be used to manually align the strings on the left side. The <code class="docutils literal"><span class="pre">width</span></code> keyword gives the (inner) width of the box.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">to_box</span><span class="p">(</span><span class="s1">&#39;line 1</span><span class="se">\n</span><span class="s1">line 2&#39;</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+<span class="go">+--------------------+</span>
+<span class="go">|   line 1           |</span>
+<span class="go">|   line 2           |</span>
+<span class="go">+--------------------+</span>
+</pre></div>
+</div>
+<p>Finally, the <code class="docutils literal"><span class="pre">centering_line</span></code> keyword can be used to determine whether the first or longest line is centered. This only works if the padding is not set explicitly.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">to_box</span><span class="p">(</span><span class="s1">&#39;line 1</span><span class="se">\n</span><span class="s1">line 2 is longer&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">))</span>
+<span class="go">+------------------------------+</span>
+<span class="go">|       line 1                 |</span>
+<span class="go">|       line 2 is longer       |</span>
+<span class="go">+------------------------------+</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fsc</span><span class="o">.</span><span class="n">formatting</span><span class="o">.</span><span class="n">to_box</span><span class="p">(</span><span class="s1">&#39;line 1</span><span class="se">\n</span><span class="s1">line 2 is longer&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">centering_line</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">))</span>
+<span class="go">+------------------------------+</span>
+<span class="go">|            line 1            |</span>
+<span class="go">|            line 2 is longer  |</span>
+<span class="go">+------------------------------+</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="pyformatting" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, C. Frescolino.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

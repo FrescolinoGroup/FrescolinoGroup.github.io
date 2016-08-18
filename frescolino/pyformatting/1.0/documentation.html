@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation &mdash; pyformatting 1.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/frescolino_favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within pyformatting 1.0.0 documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pyformatting 1.0.0 documentation" href="index.html"/>
+        <link rel="prev" title="Tutorial" href="tutorial.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyformatting
+          
+
+          
+            
+            <img src="_static/frescolino_logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">pyformatting</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-fsc.formatting">
+<span id="documentation"></span><h1>Documentation<a class="headerlink" href="#module-fsc.formatting" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="fsc.formatting.shorten">
+<code class="descclassname">fsc.formatting.</code><code class="descname">shorten</code><span class="sig-paren">(</span><em>obj</em>, <em>length=50</em>, <em>show_number=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/formatting/_formatting.html#shorten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.formatting.shorten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the str representation of an object and shortens it if longer than <code class="docutils literal"><span class="pre">length</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> &#8211; Any python object that should be converted to a string.</li>
+<li><strong>length</strong> (<em>int</em>) &#8211; The maximal length of the resulting string.</li>
+<li><strong>show_number</strong> (<em>bool</em>) &#8211; Controls whether the number of omitted characters is shown (<code class="docutils literal"><span class="pre">&lt;...N...&gt;</span></code>) or not (<code class="docutils literal"><span class="pre">&lt;...&gt;</span></code>).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>str.  This string is guaranteed to have maximal size <code class="docutils literal"><span class="pre">length</span></code>.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.formatting.to_box">
+<code class="descclassname">fsc.formatting.</code><code class="descname">to_box</code><span class="sig-paren">(</span><em>iterable</em>, <em>width=70</em>, <em>padding='auto'</em>, <em>centering_line='longest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/formatting/_formatting.html#to_box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.formatting.to_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string where a box is drawn around the given string (or iterable of strings). The length of each line should not be longer than the width of the box, otherwise the box might look bad.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<em>int</em>) &#8211; Width of the box, without the box itself.</li>
+<li><strong>padding</strong> (<em>int</em>) &#8211; Space on the left side of the string. Per default (<code class="docutils literal"><span class="pre">padding='auto'</span></code>), the padding is such that the <code class="docutils literal"><span class="pre">centering_line</span></code> is centered.</li>
+<li><strong>centering_line</strong> (<em>str</em>) &#8211; Determines which line should be centered. Valid arguments are &#8216;first&#8217; and &#8216;longest&#8217;.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.formatting.without_ansi">
+<code class="descclassname">fsc.formatting.</code><code class="descname">without_ansi</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/formatting/_formatting.html#without_ansi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.formatting.without_ansi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes ANSI escape codes which match one of the two patterns &#8216;[^m]*m&#8217; and &#8216;([A-Z]&#8217; from the string.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="tutorial.html" class="btn btn-neutral" title="Tutorial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, C. Frescolino.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
