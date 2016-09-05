@@ -9,7 +9,7 @@ import os
 import glob
 from xml.etree import ElementTree as xml
 
-
+# Indent XML code. Introduces whitespace in some cases (version selector).
 def prettify(node, indent = "    ", level = 0):
     node.tail = "\n" + indent * level
     if len(node) != 0:
@@ -69,7 +69,7 @@ def main():
         descr = os.path.join(path, "..", "..", "modules", mod_name, "doc", "description.txt")
         
         if not os.path.isfile(descr):
-            raise RuntimeError("Module {} has no doc/describtion.txt file".format(mod_name))
+            raise RuntimeError("Module {} has no doc/description.txt file".format(mod_name))
         
         with open(descr, "r") as f:
             M["description"] = f.readline().strip()
@@ -152,6 +152,8 @@ def main():
     head = xml.Element("head")
     link = xml.Element("link", href="theme.css", rel="stylesheet", type="text/css")
     head.append(link)
+    icon = xml.Element("link", href="static/frescolino_favicon.ico", rel="icon")
+    head.append(icon)
     
     root = xml.Element("html")
     root.append(head)
