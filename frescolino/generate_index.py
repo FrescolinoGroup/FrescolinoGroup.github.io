@@ -90,7 +90,7 @@ def main():
     header = xml.Element("header")
     container = xml.Element("div", **{"class": "head_container"})
     figure = xml.Element("figure", **{"class": "logo"})
-    figure.append(xml.Element("img", **{'src': 'static/frescolino_logo.png'}))
+    figure.append(xml.Element("img", **{'src': 'static/frescolino_logo_small.png'}))
     container.append(figure)
     title = xml.Element("h1")
     title.text = "The Frescolino project"
@@ -169,7 +169,7 @@ def main():
     
     # copy media files to static
     shutil.copyfile(project_dir+"/../media/logo/frescolino_favicon.ico", project_dir+"/frescolino/static/frescolino_favicon.ico")
-    shutil.copyfile(project_dir+"/../media/logo/frescolino_logo.png", project_dir+"/frescolino/static/frescolino_logo.png")
+    shutil.copyfile(project_dir+"/../media/logo/frescolino_logo_small.png", project_dir+"/frescolino/static/frescolino_logo_small.png")
     
 if __name__ == "__main__":
     main()
