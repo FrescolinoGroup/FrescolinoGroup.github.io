@@ -69,7 +69,7 @@ def main():
         descr = os.path.join(path, "..", "..", "modules", mod_name, "doc", "description.txt")
         
         if not os.path.isfile(descr):
-            raise RuntimeError("Module {} has no doc/describtion.txt file".format(mod_name))
+            raise RuntimeError("Module {} has no doc/description.txt file".format(mod_name))
         
         with open(descr, "r") as f:
             M["description"] = f.readline().strip()
