@@ -86,7 +86,6 @@ $(document).ready(function(){initNavTree('index.html','');});
 <p>Creates a static object named <code>dout</code> and defines debugging macros. </p>
 </blockquote>
 <hr/>
-<dl class="section version"><dt>Version</dt><dd>2015.1110 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd><table class="doxtable">
 <tr>
 <th align="center">Year </th><th>Name  </th></tr>
@@ -111,7 +110,7 @@ Compilation</h2>
 <p>Pass <code>DEBUGPRINTER_OFF</code> to turn off all functionality provided here. The debug statements can be left in the code, since all methods and macros become inline and trivial, and thus will be optimised away by the compiler at sufficient optimisation flags. This flag will be automatically assumed if the standard <code>NDEBUG</code> is passed.</p>
 <p>Pass <code>DEBUGPRINTER_NO_EXECINFO</code> flag on Windows (makes <code>stack()</code>, <code>dout_STACK</code> and <code>dout_FUNC</code> trivial).</p>
 <p>Pass <code>DEBUGPRINTER_NO_CXXABI</code> if you don't have a <em>cxxabi</em> demangle call (translates raw type symbols, i.e. <code>typeid(std::string).name()</code> output <code>Ss</code> to <code>std::string</code>) in your libc distribution. The stack and type methods will then print raw stack frame names and a <em>c++filt</em>-ready output.</p>
-<p>Pass <code>DEBUGPRINTER_NO_SIGNALS</code> to turn off automatic stack tracing when certain fatal signals occur. Passing this flag is recommended on non-Unix-like systems. Class for global static <code>dout</code> object. </p>
+<p>Pass <code>DEBUGPRINTER_NO_SIGNALS</code> to turn off automatic stack tracing when certain fatal signals occur. Passing this flag is recommended on non-Unix-like systems. </p>
 <h1><a class="anchor" id="dummy"></a>
  </h1>
 <h2><a class="anchor" id="Usage"></a>
