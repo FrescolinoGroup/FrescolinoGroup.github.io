@@ -7,7 +7,10 @@
 
 import os
 import glob
+import shutil
 from xml.etree import ElementTree as xml
+
+project_dir = os.path.dirname(os.path.abspath(__file__)) + "/.."
 
 # Indent XML code. Introduces whitespace in some cases (version selector).
 def prettify(node, indent = "    ", level = 0):
@@ -163,6 +166,10 @@ def main():
     
     tree = xml.ElementTree(root)
     tree.write("index.html", method = "html")
+    
+    # copy media files to static
+    shutil.copyfile(project_dir+"/../media/logo/frescolino_favicon.ico", project_dir+"/frescolino/static/frescolino_favicon.ico")
+    shutil.copyfile(project_dir+"/../media/logo/frescolino_logo.png", project_dir+"/frescolino/static/frescolino_logo.png")
     
 if __name__ == "__main__":
     main()
