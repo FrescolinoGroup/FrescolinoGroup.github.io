@@ -19,20 +19,26 @@ header {
 }
 
 .mod_container {
-    display: flex
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
 }
 
 .module > div{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .module {
     margin: 10px;
     padding: 1em;
     background-color: #B8B8B8;
-    
-    height: 10em;
+    min-width: 200px;
+    max-width: 250px;
+    min-height: 10em;
     
     display: flex;
     flex-direction: column;

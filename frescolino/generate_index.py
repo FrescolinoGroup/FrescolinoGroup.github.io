@@ -34,7 +34,7 @@ def listdir_only_dir(path):
         if os.path.isdir(os.path.join(path, p)):
             dirs.append(p)
     
-    return dirs
+    return sorted(dirs)
 
 def main():
     path = os.path.dirname(os.path.abspath(__file__))
@@ -93,7 +93,7 @@ def main():
     figure.append(xml.Element("img", **{'src': 'static/frescolino_logo_small.png'}))
     container.append(figure)
     title = xml.Element("h1")
-    title.text = "The Frescolino project"
+    title.text = "The Frescolino Project"
     container.append(title)
     subtitle = xml.Element("h2")
     subtitle.text = "Choose a Module below"
