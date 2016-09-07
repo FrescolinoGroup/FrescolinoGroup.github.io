@@ -1,8 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"01_types_8cpp-example.html":[3,0],
-"02_flow_8cpp-example.html":[3,1],
-"03_advanced_8cpp-example.html":[3,2],
 "DebugPrinter_8hpp.html":[2,0,0,0,0],
 "DebugPrinter_8hpp.html#a0a88167ab87d4320d4147af3708c31e6":[2,0,0,0,0,2],
 "DebugPrinter_8hpp.html#a1a69c9b7af8369fbc18e6c2c221a9ea9":[2,0,0,0,0,11],
@@ -34,7 +31,6 @@ var NAVTREEINDEX0 =
 "classfsc_1_1DebugPrinter.html#aeba246be34f987127ab9278f75e54949":[1,0,0,0,9],
 "dir_68267d1309a1af8e8297ef4c3efbcdba.html":[2,0,0],
 "dir_c3140e8f1ae95618423fbdec2a6cc0be.html":[2,0,0,0],
-"examples.html":[3],
 "files.html":[2,0],
 "functions.html":[1,2,0],
 "functions_func.html":[1,2,1],
@@ -42,8 +38,8 @@ var NAVTREEINDEX0 =
 "globals.html":[2,1,0],
 "globals_defs.html":[2,1,1],
 "index.html":[],
-"namespacefsc.html":[1,0,0],
 "namespacefsc.html":[0,0,0],
+"namespacefsc.html":[1,0,0],
 "namespacemembers.html":[0,1,0],
 "namespacemembers_func.html":[0,1,1],
 "namespaces.html":[0,0],

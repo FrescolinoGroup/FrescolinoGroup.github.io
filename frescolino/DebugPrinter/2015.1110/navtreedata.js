@@ -23,14 +23,13 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
-    ] ],
-    [ "Examples", "examples.html", "examples" ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"01_types_8cpp-example.html"
+"DebugPrinter_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
