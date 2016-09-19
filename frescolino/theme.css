@@ -26,18 +26,13 @@ header {
 
 }
 
-.module > div{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
 .module {
-    margin: 10px;
+    position: relative;
+    margin: 5px;
     padding: 1em;
     background-color: #B8B8B8;
-    min-width: 200px;
-    max-width: 250px;
+    min-width: 300px;
+    max-width: 300px;
     min-height: 10em;
     
     display: flex;
@@ -52,6 +47,8 @@ header {
 }
 
 div[name="versions"] {
+    position: absolute;
+    bottom: 0.5em;
     display: flex;
     flex-direction: column;
 }
@@ -71,5 +68,11 @@ a[name="latest"]:hover {
 }
 
 a[name="title"] {
+    position: absolute;
+    top: 0.0em;
     font-size: 2em;
+}
+a[name="descr"] {
+    position: absolute;
+    top: 3.5em;
 }
