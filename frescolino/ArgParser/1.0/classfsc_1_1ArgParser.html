@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('classfsc_1_1ArgParser.html','');});
 <div class="line">}</div>
 </div><!-- fragment --> <dl><dt><b>Examples: </b></dt><dd><a class="el" href="basic_example_8cpp-example.html#_a0">basic_example.cpp</a>, <a class="el" href="merge_example_8cpp-example.html#_a0">merge_example.cpp</a>, <a class="el" href="mixed_example_8cpp-example.html#_a0">mixed_example.cpp</a>, and <a class="el" href="weak_type_example_8cpp-example.html#_a0">weak_type_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00082">82</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00083">83</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -133,7 +133,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa4c526de7c10e4086abf3eb8ac5065c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor  <a href="#aa4c526de7c10e4086abf3eb8ac5065c6">More...</a><br /></td></tr>
 <tr class="separator:aa4c526de7c10e4086abf3eb8ac5065c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeef75fd9440405e649aea42e588f19ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfsc_1_1ArgParser.html#aeef75fd9440405e649aea42e588f19ea">ArgParser</a> (int const &amp;argc, char *argv[])</td></tr>
-<tr class="memdesc:aeef75fd9440405e649aea42e588f19ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct form command line  <a href="#aeef75fd9440405e649aea42e588f19ea">More...</a><br /></td></tr>
+<tr class="memdesc:aeef75fd9440405e649aea42e588f19ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct from command line  <a href="#aeef75fd9440405e649aea42e588f19ea">More...</a><br /></td></tr>
 <tr class="separator:aeef75fd9440405e649aea42e588f19ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac074cb6ccc0c13f8a7d329feb2f9a3de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfsc_1_1ArgParser.html#ac074cb6ccc0c13f8a7d329feb2f9a3de">ArgParser</a> (std::string const &amp;cline)</td></tr>
 <tr class="memdesc:ac074cb6ccc0c13f8a7d329feb2f9a3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">string constructor  <a href="#ac074cb6ccc0c13f8a7d329feb2f9a3de">More...</a><br /></td></tr>
@@ -185,7 +185,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <tr class="memdesc:a4dea4ec78ec8844ffe9e31eb0f3a4ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a flag  <a href="#a4dea4ec78ec8844ffe9e31eb0f3a4ab7">More...</a><br /></td></tr>
 <tr class="separator:a4dea4ec78ec8844ffe9e31eb0f3a4ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3964b3c0acff74e911137e6425c03ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfsc_1_1ArgParser.html#ac3964b3c0acff74e911137e6425c03ee">merge</a> (<a class="el" href="classfsc_1_1ArgParser.html">ArgParser</a> const &amp;rhs, bool const &amp;overwrite=true) noexcept</td></tr>
-<tr class="memdesc:ac3964b3c0acff74e911137e6425c03ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">merge two argument parser  <a href="#ac3964b3c0acff74e911137e6425c03ee">More...</a><br /></td></tr>
+<tr class="memdesc:ac3964b3c0acff74e911137e6425c03ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">merge two argument parsers  <a href="#ac3964b3c0acff74e911137e6425c03ee">More...</a><br /></td></tr>
 <tr class="separator:ac3964b3c0acff74e911137e6425c03ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a396b3e33997556dad595a9b3b32efda7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfsc_1_1ArgParser.html#a396b3e33997556dad595a9b3b32efda7">parse_file</a> (std::string const &amp;filename, bool const &amp;overwrite=true)</td></tr>
 <tr class="memdesc:a396b3e33997556dad595a9b3b32efda7"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a file, parse the content and merge into <code>this</code>  <a href="#a396b3e33997556dad595a9b3b32efda7">More...</a><br /></td></tr>
@@ -218,9 +218,9 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 </div><div class="memdoc">
 
 <p>default constructor </p>
-<p>does not generate pdw and progname. </p>
+<p>does not generate pwd and progname. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00094">94</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00095">95</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +256,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 </table>
 </div><div class="memdoc">
 
-<p>construct form command line </p>
+<p>construct from command line </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">argc</td><td>length of argv </td></tr>
@@ -266,7 +266,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 </dl>
 <p>the only constructor that can set pwd and progname since it can be extracted from argv[0]. Throws a std::runtime_error if the command line is ill-formed. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00105">105</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00106">106</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +301,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 </dl>
 <p>construct the <a class="el" href="classfsc_1_1ArgParser.html" title="an argument parser that does not require registration. ">ArgParser</a> with a string instead of the command line to parse. Throws a std::runtime_error if the string is ill-formed. Does not generate pwd and progname. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00120">120</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00121">121</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +331,7 @@ size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 <p>the <code>cwd</code> should always be set </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="mixed_example_8cpp-example.html#a6">mixed_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00201">201</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00202">202</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -380,7 +380,7 @@ template&lt;typename T &gt; </div>
 <p>If there is already a flag with name <code>key</code> a std::runtime_error is thown. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="mixed_example_8cpp-example.html#a2">mixed_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00256">256</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00257">257</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -415,7 +415,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <p>If there is already a named argument with name <code>key</code> a std::runtime_error is thown. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00266">266</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00267">267</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -464,7 +464,7 @@ template&lt;typename T &gt; </div>
 <p>If <code>key</code> is found but not convertibly to <code>decltype(def)</code>, a std::runtime_error is thrown. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="mixed_example_8cpp-example.html#a3">mixed_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00155">155</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00156">156</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -510,7 +510,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <p>If <code>key</code> is found but not convertibly to <code>std::string</code>, a std::runtime_error is thrown. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00168">168</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00169">169</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -558,7 +558,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <p>If the free argument at <code>pos</code> is found but not convertibly to <code>decltype(def)</code>, a std::runtime_error is thrown. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00180">180</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00181">181</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -604,7 +604,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <p>If <code>pos</code> is found but not convertibly to <code>std::string</code>, a std::runtime_error is thrown. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00194">194</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00195">195</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -640,7 +640,7 @@ template&lt;typename T &gt; </div>
 <p>returns true if <code>key</code> is a flag or named argument. Note that it is not allowed to have a flag and named argument with the same name. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="mixed_example_8cpp-example.html#a4">mixed_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00235">235</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00236">236</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -675,7 +675,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <p>returns true if <code>pos</code> &lt; <code><a class="el" href="classfsc_1_1ArgParser.html#ac6e97ad977e3d98db7fe6fd640aafe4c" title="returns the number of free arguments ">freeargc()</a></code>. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00243">243</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00244">244</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -711,7 +711,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>merge two argument parser </p>
+<p>merge two argument parsers </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rhs</td><td>is the argument parser that is merged into <code>this</code> one. </td></tr>
@@ -728,7 +728,7 @@ template&lt;typename T &gt; </div>
 </ul>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="merge_example_8cpp-example.html#a1">merge_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00288">288</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00289">289</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -763,7 +763,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <p>If <code>key</code> is not found, a std::runtime_error is thrown. </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00131">131</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00132">132</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -798,7 +798,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <p>If <code>key &gt;= <a class="el" href="classfsc_1_1ArgParser.html#ac6e97ad977e3d98db7fe6fd640aafe4c" title="returns the number of free arguments ">freeargc()</a></code> a std::runtime_error is thrown, i.e. there is no free argument at the position <code>key</code> </p>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00142">142</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00143">143</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -845,7 +845,7 @@ template&lt;typename T &gt; </div>
 <p>the file is loaded an parsed in a seperate <a class="el" href="classfsc_1_1ArgParser.html" title="an argument parser that does not require registration. ">ArgParser</a> inastance an the merged into <code>this</code>. For the mergin behavior see <a class="el" href="classfsc_1_1ArgParser.html#ac3964b3c0acff74e911137e6425c03ee">merge </a>. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="mixed_example_8cpp-example.html#a1">mixed_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00318">318</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00319">319</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -881,7 +881,7 @@ template&lt;typename S &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00338">338</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00339">339</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -910,7 +910,7 @@ template&lt;typename S &gt; </div>
 <p>Only works if the <code>progname</code> is set, which only happens in the command line constructor. If not set, a std::runtime_error is thrown. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="mixed_example_8cpp-example.html#a8">mixed_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00219">219</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00220">220</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>
@@ -939,7 +939,7 @@ template&lt;typename S &gt; </div>
 <p>Only works if the <code>pwd</code> is set, which only happens in the command line constructor. If not set, a std::runtime_error is thrown. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="mixed_example_8cpp-example.html#a7">mixed_example.cpp</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00209">209</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
+<p>Definition at line <a class="el" href="ArgParser_8hpp_source.html#l00210">210</a> of file <a class="el" href="ArgParser_8hpp_source.html">ArgParser.hpp</a>.</p>
 
 </div>
 </div>

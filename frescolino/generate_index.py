@@ -111,8 +111,13 @@ def main():
         descr = xml.Element("a", name="descr")
         descr.text = M["description"]
         
+        build_stat = xml.Element("img", **{'src': 'https://travis-ci.org/FrescolinoGroup/{}.svg?branch=master'.format(M["name"])})
+        bs = xml.Element("div")
+        bs.append(build_stat)
+        
         title = xml.Element("div")
         title.append(name)
+        title.append(bs)
         title.append(descr)
         
         mod.append(title)
@@ -142,7 +147,6 @@ def main():
         av = xml.Element("div")
         av.append(avers)
         av.append(sel)
-        
         
         versions.append(lv)
         versions.append(av)
