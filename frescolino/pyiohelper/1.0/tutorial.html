@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; pyiohelper 1.0.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/frescolino_favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within pyiohelper 1.0.0 documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="pyiohelper 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Documentation" href="documentation.html"/>
+        <link rel="prev" title="pyiohelper" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyiohelper
+          
+
+          
+            
+            <img src="_static/frescolino_logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-serializerdispatch-instance">Creating a <code class="docutils literal"><span class="pre">SerializerDispatch</span></code> instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-and-loading">Saving and loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-encoding-decoding">Custom encoding / decoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">pyiohelper</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will guide you through the basic steps of using the <code class="docutils literal"><span class="pre">iohelper</span></code> module.</p>
+<div class="section" id="creating-a-serializerdispatch-instance">
+<h2>Creating a <a class="reference internal" href="documentation.html#fsc.iohelper.SerializerDispatch" title="fsc.iohelper.SerializerDispatch"><code class="xref py py-class docutils literal"><span class="pre">SerializerDispatch</span></code></a> instance<a class="headerlink" href="#creating-a-serializerdispatch-instance" title="Permalink to this headline">¶</a></h2>
+<p>To use the <code class="docutils literal"><span class="pre">iohelper</span></code> module, you must first create a <a class="reference internal" href="documentation.html#fsc.iohelper.SerializerDispatch" title="fsc.iohelper.SerializerDispatch"><code class="xref py py-class docutils literal"><span class="pre">SerializerDispatch</span></code></a> instance. The instance is created with a specific encoding / decoding. Unless you want to use a custom encoding (see <a class="reference internal" href="#custom"><span class="std std-ref">Custom encoding / decoding</span></a>), you can use <a class="reference internal" href="documentation.html#module-fsc.iohelper.encoding.default" title="fsc.iohelper.encoding.default"><code class="xref py py-mod docutils literal"><span class="pre">encoding.default</span></code></a>. This encoding handles common numpy and built-in types.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fsc.iohelper</span> <span class="k">as</span> <span class="nn">io</span>
+<span class="n">IO_HANDLER</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">SerializerDispatch</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">encoding</span><span class="o">.</span><span class="n">default</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The task of the <a class="reference internal" href="documentation.html#fsc.iohelper.SerializerDispatch" title="fsc.iohelper.SerializerDispatch"><code class="xref py py-class docutils literal"><span class="pre">SerializerDispatch</span></code></a> instance is to choose the correct serializer (possible options are <a class="reference external" href="https://docs.python.org/3/library/json.html#module-json" title="(in Python v3.5)"><code class="xref py py-mod docutils literal"><span class="pre">json</span></code></a>, <a class="reference external" href="http://pythonhosted.org/msgpack-python/api.html#module-msgpack" title="(in msgpack v0.4)"><code class="xref py py-mod docutils literal"><span class="pre">msgpack</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.5)"><code class="xref py py-mod docutils literal"><span class="pre">pickle</span></code></a>), handle file operations and invoke the encoding and decoding functions.</p>
+</div>
+<div class="section" id="saving-and-loading">
+<h2>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this headline">¶</a></h2>
+<p>Having created the <a class="reference internal" href="documentation.html#fsc.iohelper.SerializerDispatch" title="fsc.iohelper.SerializerDispatch"><code class="xref py py-class docutils literal"><span class="pre">SerializerDispatch</span></code></a> instance, you can use it to save data to a file:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">IO_HANDLER</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">IO_HANDLER</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;filename.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To get the data back, you can use the <a class="reference internal" href="documentation.html#fsc.iohelper.SerializerDispatch.load" title="fsc.iohelper.SerializerDispatch.load"><code class="xref py py-meth docutils literal"><span class="pre">load()</span></code></a> method:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">IO_HANDLER</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">IO_HANDLER</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;filename.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In both cases, the file format is automatically detected from the file ending. Possible file endings are <code class="docutils literal"><span class="pre">.json</span></code> for JSON files, <code class="docutils literal"><span class="pre">.msgpack</span></code> for msgpack, and <code class="docutils literal"><span class="pre">.p</span></code> or <code class="docutils literal"><span class="pre">.pickle</span></code> for pickle. The file endings are case insensitive, which means for example <code class="docutils literal"><span class="pre">.JSON</span></code> or <code class="docutils literal"><span class="pre">.Json</span></code> is equally valid.</p>
+<p>You can also specify the serializer explicitly, by passing the <code class="docutils literal"><span class="pre">json</span></code>, <code class="docutils literal"><span class="pre">msgpack</span></code> or <code class="docutils literal"><span class="pre">pickle</span></code> module as the <code class="docutils literal"><span class="pre">serializer</span></code> keyword argument.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">IO_HANDLER</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">IO_HANDLER</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;any_filename&#39;</span><span class="p">,</span> <span class="n">serializer</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">IO_HANDLER</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;any_filename&#39;</span><span class="p">,</span> <span class="n">serializer</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If no serializer is given and the file ending is not understood, the <code class="docutils literal"><span class="pre">json</span></code> serializer will be used for saving data to avoid data loss. When loading, an error is raised instead to avoid accidentally loading corrupted data.</p>
+</div>
+</div>
+<div class="section" id="custom-encoding-decoding">
+<span id="custom"></span><h2>Custom encoding / decoding<a class="headerlink" href="#custom-encoding-decoding" title="Permalink to this headline">¶</a></h2>
+<p>To define a custom encoding and decoding, an object which has two members <code class="docutils literal"><span class="pre">encode</span></code> and <code class="docutils literal"><span class="pre">decode</span></code> is needed. This object can be passed as the <code class="docutils literal"><span class="pre">encoding</span></code> argument to the <a class="reference internal" href="documentation.html#fsc.iohelper.SerializerDispatch" title="fsc.iohelper.SerializerDispatch"><code class="xref py py-class docutils literal"><span class="pre">SerializerDispatch</span></code></a> constructor.</p>
+<p>The <code class="docutils literal"><span class="pre">encode</span></code> function should convert a given object into a JSON / msgpack - compatible type, and <code class="docutils literal"><span class="pre">decode</span></code> should do the inverse. When saving / loading, the functions are passed as the <code class="docutils literal"><span class="pre">default</span></code> (see <a class="reference external" href="https://docs.python.org/3/library/json.html#json.dump" title="(in Python v3.5)"><code class="xref py py-func docutils literal"><span class="pre">json.dump()</span></code></a>) and <code class="docutils literal"><span class="pre">object_hook</span></code> (see <a class="reference external" href="https://docs.python.org/3/library/json.html#json.load" title="(in Python v3.5)"><code class="xref py py-func docutils literal"><span class="pre">json.load()</span></code></a>) parameters, respectively. The encoding and decoding functions are not used for the <a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.5)"><code class="xref py py-mod docutils literal"><span class="pre">pickle</span></code></a> serializer. Custom encodings for <a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.5)"><code class="xref py py-mod docutils literal"><span class="pre">pickle</span></code></a> are not currently supported.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fsc.iohelper</span> <span class="k">as</span> <span class="nn">io</span>
+
+<span class="k">class</span> <span class="nc">Encoding</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+        <span class="o">...</span>
+
+<span class="n">IO_HANDLER</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">SerializerDispatch</span><span class="p">(</span><span class="n">Encoding</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="documentation.html#module-fsc.iohelper.encoding.default" title="fsc.iohelper.encoding.default"><code class="xref py py-mod docutils literal"><span class="pre">encoding.default</span></code></a> source code for a complete example implementation.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="pyiohelper" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, C. Frescolino.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
