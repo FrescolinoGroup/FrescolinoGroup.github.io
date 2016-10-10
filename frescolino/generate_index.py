@@ -7,9 +7,12 @@
 
 import os
 import glob
+import shutil
 from xml.etree import ElementTree as xml
 
+project_dir = os.path.dirname(os.path.abspath(__file__)) + "/.."
 
+# Indent XML code. Introduces whitespace in some cases (version selector).
 def prettify(node, indent = "    ", level = 0):
     node.tail = "\n" + indent * level
     if len(node) != 0:
@@ -31,7 +34,7 @@ def listdir_only_dir(path):
         if os.path.isdir(os.path.join(path, p)):
             dirs.append(p)
     
-    return dirs
+    return sorted(dirs)
 
 def main():
     path = os.path.dirname(os.path.abspath(__file__))
@@ -69,7 +72,7 @@ def main():
         descr = os.path.join(path, "..", "..", "modules", mod_name, "doc", "description.txt")
         
         if not os.path.isfile(descr):
-            raise RuntimeError("Module {} has no doc/describtion.txt file".format(mod_name))
+            raise RuntimeError("Module {} has no doc/description.txt file".format(mod_name))
         
         with open(descr, "r") as f:
             M["description"] = f.readline().strip()
@@ -87,10 +90,10 @@ def main():
     header = xml.Element("header")
     container = xml.Element("div", **{"class": "head_container"})
     figure = xml.Element("figure", **{"class": "logo"})
-    figure.append(xml.Element("img", **{'src': 'static/frescolino_logo.png'}))
+    figure.append(xml.Element("img", **{'src': 'static/frescolino_logo_small.png'}))
     container.append(figure)
     title = xml.Element("h1")
-    title.text = "The Frescolino project"
+    title.text = "The Frescolino Project"
     container.append(title)
     subtitle = xml.Element("h2")
     subtitle.text = "Choose a Module below"
@@ -108,8 +111,13 @@ def main():
         descr = xml.Element("a", name="descr")
         descr.text = M["description"]
         
+        build_stat = xml.Element("img", **{'src': 'https://travis-ci.org/FrescolinoGroup/{}.svg?branch=master'.format(M["name"])})
+        bs = xml.Element("div")
+        bs.append(build_stat)
+        
         title = xml.Element("div")
         title.append(name)
+        title.append(bs)
         title.append(descr)
         
         mod.append(title)
@@ -140,7 +148,6 @@ def main():
         av.append(avers)
         av.append(sel)
         
-        
         versions.append(lv)
         versions.append(av)
         mod.append(versions)
@@ -152,6 +159,8 @@ def main():
     head = xml.Element("head")
     link = xml.Element("link", href="theme.css", rel="stylesheet", type="text/css")
     head.append(link)
+    icon = xml.Element("link", href="static/frescolino_favicon.ico", rel="icon")
+    head.append(icon)
     
     root = xml.Element("html")
     root.append(head)
@@ -161,6 +170,10 @@ def main():
     
     tree = xml.ElementTree(root)
     tree.write("index.html", method = "html")
+    
+    # copy media files to static
+    shutil.copyfile(project_dir+"/../media/logo/frescolino_favicon.ico", project_dir+"/frescolino/static/frescolino_favicon.ico")
+    shutil.copyfile(project_dir+"/../media/logo/frescolino_logo_small.png", project_dir+"/frescolino/static/frescolino_logo_small.png")
     
 if __name__ == "__main__":
     main()
