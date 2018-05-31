@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation &mdash; pyhdf5io 0.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/frescolino_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within pyhdf5io 0.1.0 documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="pyhdf5io 0.1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Tutorial" href="tutorial.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyhdf5io
+          
+
+          
+            
+            <img src="_static/frescolino_logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyhdf5io</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-fsc.hdf5_io">
+<span id="documentation"></span><h1>Documentation<a class="headerlink" href="#module-fsc.hdf5_io" title="Permalink to this headline">¶</a></h1>
+<p>This module contains functions to save and load objects, using the HDF5 format.</p>
+<dl class="function">
+<dt id="fsc.hdf5_io.save">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">save</code><span class="sig-paren">(</span><em>obj</em>, <em>hdf5_file</em><span class="sig-paren">)</span><a class="headerlink" href="#fsc.hdf5_io.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#fsc.hdf5_io.to_hdf5_file" title="fsc.hdf5_io.to_hdf5_file"><code class="xref py py-func docutils literal"><span class="pre">to_hdf5_file()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.hdf5_io.load">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">load</code><span class="sig-paren">(</span><em>hdf5_file</em><span class="sig-paren">)</span><a class="headerlink" href="#fsc.hdf5_io.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#fsc.hdf5_io.from_hdf5_file" title="fsc.hdf5_io.from_hdf5_file"><code class="xref py py-func docutils literal"><span class="pre">from_hdf5_file()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.hdf5_io.from_hdf5">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">from_hdf5</code><span class="sig-paren">(</span><em>hdf5_handle</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/hdf5_io/_save_load.html#from_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.hdf5_io.from_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes the given HDF5 handle into an object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.7)"><code class="xref py py-class docutils literal"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.7)"><code class="xref py py-class docutils literal"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object is stored.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.hdf5_io.to_hdf5">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">to_hdf5</code><span class="sig-paren">(</span><em>obj</em>, <em>hdf5_handle</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/hdf5_io/_save_load.html#to_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.hdf5_io.to_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serializes a given object to HDF5 format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – Object to serialize.</li>
+<li><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.7)"><code class="xref py py-class docutils literal"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.7)"><code class="xref py py-class docutils literal"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object gets stored.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.hdf5_io.to_hdf5_singledispatch">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">to_hdf5_singledispatch</code><span class="sig-paren">(</span><em>obj</em>, <em>hdf5_handle</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/hdf5_io/_save_load.html#to_hdf5_singledispatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.hdf5_io.to_hdf5_singledispatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Singledispatch function which is called to serialize and object when it does not have a <code class="docutils literal"><span class="pre">to_hdf5</span></code> method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>obj</strong> – Object to serialize.</li>
+<li><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.7)"><code class="xref py py-class docutils literal"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.7)"><code class="xref py py-class docutils literal"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object gets stored.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.hdf5_io.from_hdf5_file">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">from_hdf5_file</code><span class="sig-paren">(</span><em>hdf5_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/hdf5_io/_save_load.html#from_hdf5_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.hdf5_io.from_hdf5_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#fsc.hdf5_io.from_hdf5_file" title="fsc.hdf5_io.from_hdf5_file"><code class="xref py py-func docutils literal"><span class="pre">from_hdf5_file()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.hdf5_io.to_hdf5_file">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">to_hdf5_file</code><span class="sig-paren">(</span><em>obj</em>, <em>hdf5_file</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/hdf5_io/_save_load.html#to_hdf5_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.hdf5_io.to_hdf5_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#fsc.hdf5_io.to_hdf5_file" title="fsc.hdf5_io.to_hdf5_file"><code class="xref py py-func docutils literal"><span class="pre">to_hdf5_file()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="fsc.hdf5_io.HDF5Enabled">
+<em class="property">class </em><code class="descclassname">fsc.hdf5_io.</code><code class="descname">HDF5Enabled</code><a class="reference internal" href="_modules/fsc/hdf5_io/_base_classes.html#HDF5Enabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.hdf5_io.HDF5Enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for data which can be serialized to and deserialized from HDF5.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fsc.hdf5_io.subscribe_hdf5">
+<code class="descclassname">fsc.hdf5_io.</code><code class="descname">subscribe_hdf5</code><span class="sig-paren">(</span><em>type_tag</em>, <em>extra_tags=()</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fsc/hdf5_io/_subscribe.html#subscribe_hdf5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fsc.hdf5_io.subscribe_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class decorator that subscribes the class with the given type_tag for serialization.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type_tag</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Unique identifier of the class, which is injected into the HDF5 data to identify the class.</li>
+<li><strong>extra_tags</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.6)"><em>tuple</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a><em>)</em>) – Additional tags which should be deserialized to the given class.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="tutorial.html" class="btn btn-neutral" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, C. Frescolino.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

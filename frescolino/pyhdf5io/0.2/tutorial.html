@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; pyhdf5io 0.2.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/frescolino_favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within pyhdf5io 0.2.2 documentation" href="_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="pyhdf5io 0.2.2 documentation" href="index.html"/>
+        <link rel="next" title="Documentation" href="documentation.html"/>
+        <link rel="prev" title="fsc.hdf5_io" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pyhdf5io
+          
+
+          
+            
+            <img src="_static/frescolino_logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyhdf5io</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we’ll see how to add HDF5 serialization to classes. Let’s start with defining a simple class:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="k">class</span> <span class="nc">Snek</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+<span class="gp">   ...: </span>        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
+<span class="gp">   ...: </span>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ...: </span>        <span class="k">return</span> <span class="s1">&#39;≻:&#39;</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="s1">&#39;&gt;···&#39;</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [2]: </span><span class="n">Snek</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gh">Out[2]: </span><span class="go">≻:==========&gt;···</span>
+</pre></div>
+</div>
+<p>To make this Snek HDF5 serializable, we need to answer these questions three:</p>
+<ol class="arabic simple">
+<li>How is the Snek serialized to HDF5?</li>
+<li>How is the HDF5 converted back into a Snek?</li>
+<li>What is <span class="strike">your favourite colour</span> the unique tag identifying the Snek class?</li>
+</ol>
+<p>To define how the Snek is serialized to HDF5, we add a <code class="docutils literal"><span class="pre">to_hdf5</span></code> method. This method is passed a <code class="docutils literal"><span class="pre">hdf5_handle</span></code>, which is a <a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.8)"><code class="xref py py-class docutils literal"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.8)"><code class="xref py py-class docutils literal"><span class="pre">h5py.Group</span></code></a> defining the (current) root of the HDF5 file where the object should be added.</p>
+<p>For de-serialization, the <code class="docutils literal"><span class="pre">from_hdf5</span></code> classmethod should be implemented. Again, this method is passed a <code class="docutils literal"><span class="pre">hdf5_handle</span></code>. It should return the deserialized object.</p>
+<p>Finally, the <a class="reference internal" href="documentation.html#fsc.hdf5_io.subscribe_hdf5" title="fsc.hdf5_io.subscribe_hdf5"><code class="xref py py-func docutils literal"><span class="pre">subscribe_hdf5()</span></code></a> class decorator is used to define a unique <code class="docutils literal"><span class="pre">type_tag</span></code> which identifies this class.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">type_tag</span></code> needs to be unique across all projects using <code class="docutils literal"><span class="pre">fsc.hdf5_io</span></code>. For this reason, you should always prepend it with the name of your module.</p>
+</div>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="kn">from</span> <span class="nn">fsc.hdf5_io</span> <span class="kn">import</span> <span class="n">subscribe_hdf5</span><span class="p">,</span> <span class="n">HDF5Enabled</span>
+
+<span class="gp">In [4]: </span><span class="nd">@subscribe_hdf5</span><span class="p">(</span><span class="s1">&#39;my_snek_module.snek&#39;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="k">class</span> <span class="nc">HDF5Snek</span><span class="p">(</span><span class="n">Snek</span><span class="p">,</span> <span class="n">HDF5Enabled</span><span class="p">):</span>
+<span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">to_hdf5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hdf5_handle</span><span class="p">):</span>
+<span class="gp">   ...: </span>        <span class="n">hdf5_handle</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span>
+<span class="gp">   ...: </span>    <span class="nd">@classmethod</span>
+<span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">from_hdf5</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">hdf5_handle</span><span class="p">):</span>
+<span class="gp">   ...: </span>        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">hdf5_handle</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [5]: </span><span class="n">HDF5Snek</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">≻:============&gt;···</span>
+</pre></div>
+</div>
+<p>Notice also that we inherit from <a class="reference internal" href="documentation.html#fsc.hdf5_io.HDF5Enabled" title="fsc.hdf5_io.HDF5Enabled"><code class="xref py py-class docutils literal"><span class="pre">HDF5Enabled</span></code></a>. This abstract base class checks for the existence of the HDF5 (de-)serialization functions, and adds methods <code class="docutils literal"><span class="pre">to_hdf5_file</span></code> and <code class="docutils literal"><span class="pre">from_hdf5_file</span></code> to save and load directly to a file.</p>
+<p>Now we can use the <a class="reference internal" href="documentation.html#fsc.hdf5_io.save" title="fsc.hdf5_io.save"><code class="xref py py-func docutils literal"><span class="pre">save()</span></code></a> and <a class="reference internal" href="documentation.html#fsc.hdf5_io.load" title="fsc.hdf5_io.load"><code class="xref py py-func docutils literal"><span class="pre">load()</span></code></a> methods to save and load Sneks in HDF5 format:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="kn">from</span> <span class="nn">fsc.hdf5_io</span> <span class="kn">import</span> <span class="n">save</span><span class="p">,</span> <span class="n">load</span>
+
+<span class="gp">In [7]: </span><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
+
+<span class="gp">In [8]: </span><span class="n">mysnek</span> <span class="o">=</span> <span class="n">HDF5Snek</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="gp">In [9]: </span><span class="k">with</span> <span class="n">NamedTemporaryFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">   ...: </span>    <span class="n">save</span><span class="p">(</span><span class="n">mysnek</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">   ...: </span>    <span class="n">snek_clone</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [10]: </span><span class="n">snek_clone</span>
+<span class="gh">Out[10]: </span><span class="go">≻:============&gt;···</span>
+</pre></div>
+</div>
+<p>You can also save and load lists or dictionaries containing Sneks:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="k">with</span> <span class="n">NamedTemporaryFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">   ....: </span>    <span class="n">save</span><span class="p">([</span><span class="n">HDF5Snek</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">HDF5Snek</span><span class="p">(</span><span class="mi">4</span><span class="p">)],</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">   ....: </span>    <span class="n">snek_2</span><span class="p">,</span> <span class="n">snek_4</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="gp">   ....: </span>
+
+<span class="gp">In [12]: </span><span class="k">print</span><span class="p">(</span><span class="n">snek_2</span><span class="p">,</span> <span class="n">snek_4</span><span class="p">)</span>
+<span class="go">≻:==&gt;··· ≻:====&gt;···</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="fsc.hdf5_io" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, C. Frescolino.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
