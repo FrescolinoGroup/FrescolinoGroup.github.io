@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Documentation &mdash; pyhdf5io 0.5.0 documentation</title>
+  <title>Documentation &mdash; pyhdf5io 0.5.1 documentation</title>
   
 
   
@@ -24,7 +24,7 @@
   
     
       <link rel="search" type="application/opensearchdescription+xml"
-            title="Search within pyhdf5io 0.5.0 documentation"
+            title="Search within pyhdf5io 0.5.1 documentation"
             href="_static/opensearch.xml"/>
     
 
@@ -179,7 +179,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object is stored.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object is stored.</td>
 </tr>
 </tbody>
 </table>
@@ -195,7 +195,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>obj</strong> – Object to serialize.</li>
-<li><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object gets stored.</li>
+<li><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object gets stored.</li>
 </ul>
 </td>
 </tr>
@@ -213,7 +213,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>obj</strong> – Object to serialize.</li>
-<li><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object gets stored.</li>
+<li><strong>hdf5_handle</strong> (<a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a>.) – HDF5 location where the serialized object gets stored.</li>
 </ul>
 </td>
 </tr>
@@ -248,9 +248,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>type_tag</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Unique identifier of the class, which is injected into the HDF5 data to identify the class.</li>
-<li><strong>extra_tags</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em>)</em>) – Additional tags which should be deserialized to the given class.</li>
-<li><strong>check_on_load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Flag that determines whether the ‘type_tag’ is checked when de-serializing the object.</li>
+<li><strong>type_tag</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Unique identifier of the class, which is injected into the HDF5 data to identify the class.</li>
+<li><strong>extra_tags</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>)</em>) – Additional tags which should be deserialized to the given class.</li>
+<li><strong>check_on_load</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Flag that determines whether the ‘type_tag’ is checked when de-serializing the object.</li>
 </ul>
 </td>
 </tr>
