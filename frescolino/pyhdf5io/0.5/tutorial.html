@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tutorial &mdash; pyhdf5io 0.5.0 documentation</title>
+  <title>Tutorial &mdash; pyhdf5io 0.5.1 documentation</title>
   
 
   
@@ -24,7 +24,7 @@
   
     
       <link rel="search" type="application/opensearchdescription+xml"
-            title="Search within pyhdf5io 0.5.0 documentation"
+            title="Search within pyhdf5io 0.5.1 documentation"
             href="_static/opensearch.xml"/>
     
 
@@ -177,7 +177,7 @@
 <li>How is the HDF5 converted back into a Snek?</li>
 <li>What is <span class="strike">your favourite colour</span> the unique tag identifying the Snek class?</li>
 </ol>
-<p>To define how the Snek is serialized to HDF5, we add a <code class="docutils literal notranslate"><span class="pre">to_hdf5</span></code> method. This method is passed a <code class="docutils literal notranslate"><span class="pre">hdf5_handle</span></code>, which is a <a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a> defining the (current) root of the HDF5 file where the object should be added.</p>
+<p>To define how the Snek is serialized to HDF5, we add a <code class="docutils literal notranslate"><span class="pre">to_hdf5</span></code> method. This method is passed a <code class="docutils literal notranslate"><span class="pre">hdf5_handle</span></code>, which is a <a class="reference external" href="http://docs.h5py.org/en/latest/high/file.html#File" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code></a> or <a class="reference external" href="http://docs.h5py.org/en/latest/high/group.html#Group" title="(in h5py v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.Group</span></code></a> defining the (current) root of the HDF5 file where the object should be added.</p>
 <p>For de-serialization, the <code class="docutils literal notranslate"><span class="pre">from_hdf5</span></code> classmethod should be implemented. Again, this method is passed a <code class="docutils literal notranslate"><span class="pre">hdf5_handle</span></code>. It should return the deserialized object.</p>
 <p>Finally, the <a class="reference internal" href="documentation.html#fsc.hdf5_io.subscribe_hdf5" title="fsc.hdf5_io.subscribe_hdf5"><code class="xref py py-func docutils literal notranslate"><span class="pre">subscribe_hdf5()</span></code></a> class decorator is used to define a unique <code class="docutils literal notranslate"><span class="pre">type_tag</span></code> which identifies this class.</p>
 <div class="admonition note">
@@ -192,7 +192,7 @@
 <span class="gp">   ...: </span>        <span class="n">hdf5_handle</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span>
 <span class="gp">   ...: </span>    <span class="nd">@classmethod</span>
 <span class="gp">   ...: </span>    <span class="k">def</span> <span class="nf">from_hdf5</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">hdf5_handle</span><span class="p">):</span>
-<span class="gp">   ...: </span>        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">hdf5_handle</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">   ...: </span>        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">hdf5_handle</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">][()])</span>
 <span class="gp">   ...: </span>
 
 <span class="gp">In [5]: </span><span class="n">HDF5Snek</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
